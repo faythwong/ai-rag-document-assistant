@@ -1,0 +1,8 @@
+# Setup Guide
+
+1. Install n8n
+2. Import the workflow
+3. Configure API credentials
+4. Create Supabase vector table
+5. Upload documents to the monitored Google Drive folder
+6. Start the workflow
