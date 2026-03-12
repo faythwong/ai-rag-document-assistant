@@ -82,3 +82,33 @@ LLM Response Generation
 
 ```bash
 npm install n8n -g
+
+or run using Docker.
+
+### 2. Import the Workflow
+
+Import the workflow file:
+
+workflow/rag-document-assistant-workflow.json
+
+into your n8n instance.
+
+### 3. Configure Credentials
+
+Add credentials inside n8n for:
+
+- Google Drive API
+- OpenAI API
+- Google Gemini API
+- Supabase API
+
+### 4. Create Vector Database Table
+
+Run this SQL inside Supabase:
+
+CREATE TABLE public.documents (
+  id bigserial PRIMARY KEY,
+  content text,
+  metadata jsonb,
+  embedding vector
+);
