@@ -10,4 +10,75 @@ This project demonstrates a production-ready AI automation pipeline built using:
 - Supabase Vector Database
 - LangChain nodes
 
-The system enables organizations to convert internal documents into a searchable AI knowledge assistant.
+The system automatically processes documents, converts them into embeddings, stores them in a vector database, and allows users to query their documents through a conversational AI interface.
+
+---
+
+## Key Features
+
+- Automated document ingestion from Google Drive  
+- PDF and CSV text extraction  
+- AI-generated metadata using Gemini  
+- Intelligent document chunking  
+- Vector embeddings generation with OpenAI  
+- Supabase vector database storage  
+- Semantic document search  
+- Conversational AI chatbot interface  
+
+---
+
+## System Architecture
+
+### Document Processing Pipeline
+
+Google Drive Upload  
+↓  
+File Detection Trigger  
+↓  
+Document Download  
+↓  
+Text Extraction  
+↓  
+AI Metadata Generation  
+↓  
+Document Chunking  
+↓  
+Embeddings Generation  
+↓  
+Supabase Vector Database  
+
+---
+
+### Chat Query Pipeline
+
+User Question  
+↓  
+Query Embedding  
+↓  
+Vector Similarity Search  
+↓  
+Relevant Document Chunks  
+↓  
+LLM Response Generation  
+
+---
+
+## Tech Stack
+
+| Layer | Technology |
+|------|-------------|
+| Workflow Orchestration | n8n |
+| LLM | OpenAI GPT |
+| AI Metadata Processing | Google Gemini |
+| Vector Database | Supabase |
+| Embeddings | OpenAI |
+| AI Orchestration | LangChain nodes |
+
+---
+
+## Setup Instructions
+
+### 1 Install n8n
+
+```bash
+npm install n8n -g
