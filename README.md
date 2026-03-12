@@ -155,3 +155,9 @@ The workflow will automatically:
 6. Store vectors in Supabase
 
 Your documents will now be searchable through the AI chatbot.
+
+## Documentation
+
+- [System Architecture](docs/architecture.md)
+- [Example Queries](docs/example-queries.md)
+- [Demo Scenario](demo/demo-scenario.md)
