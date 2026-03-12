@@ -83,32 +83,75 @@ LLM Response Generation
 ```bash
 npm install n8n -g
 
-or run using Docker.
+```
+
+Alternatively, run n8n using Docker.
+
+---
 
 ### 2. Import the Workflow
 
-Import the workflow file:
+Open **n8n** and import the workflow file located in:
 
+```
 workflow/rag-document-assistant-workflow.json
+```
 
-into your n8n instance.
+---
 
-### 3. Configure Credentials
+### 3. Configure API Credentials
 
-Add credentials inside n8n for:
+Inside n8n, configure the following credentials:
 
 - Google Drive API
 - OpenAI API
 - Google Gemini API
 - Supabase API
 
-### 4. Create Vector Database Table
+Ensure each service has the necessary API keys and permissions.
 
-Run this SQL inside Supabase:
+---
 
+### 4. Create the Vector Database Table
+
+Run the following SQL inside your Supabase project:
+
+```sql
 CREATE TABLE public.documents (
   id bigserial PRIMARY KEY,
   content text,
   metadata jsonb,
   embedding vector
 );
+```
+
+This table will store document chunks and their vector embeddings for semantic search.
+
+---
+
+### 5. Configure Google Drive Trigger
+
+Update the **Google Drive Trigger node** to monitor the folder where documents will be uploaded.
+
+Supported file types:
+
+- PDF
+- CSV
+- Google Docs
+
+---
+
+### 6. Run the Workflow
+
+Upload a document into the monitored Google Drive folder.
+
+The workflow will automatically:
+
+1. Detect the new file
+2. Download and extract text
+3. Generate metadata
+4. Split the document into chunks
+5. Generate embeddings
+6. Store vectors in Supabase
+
+Your documents will now be searchable through the AI chatbot.
